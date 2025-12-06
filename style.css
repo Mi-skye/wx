@@ -1,0 +1,119 @@
+/* ------------------------------------ */
+/* 1. 基本重置与字体 */
+/* ------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 采用苹果风格的无衬线字体 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    color: #ffffff; /* 默认文字为白色，与深海背景形成高对比度 */
+    line-height: 1.5;
+}
+
+/* ------------------------------------ */
+/* 2. 主展示区 (Hero Section) 样式 */
+/* ------------------------------------ */
+.hero-section {
+    /* 确保占据整个视口 */
+    width: 100vw;
+    height: 100vh;
+    
+    /* 背景图片设置 */
+    background-image: url('background.jpg'); /* **请确保图片文件名为 background.jpg** */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 居中内容 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 添加黑色半透明蒙层以提高文字可读性 (可选) */
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle dark overlay for better text contrast, simulating deep water */
+    background-color: rgba(0, 0, 0, 0.2); 
+    z-index: 2;
+}
+
+.content-container {
+    text-align: center;
+    /* 确保内容在蒙层之上 */
+    z-index: 3;
+}
+
+/* ------------------------------------ */
+/* 3. 标题和副标题样式 */
+/* ------------------------------------ */
+.main-title {
+    font-size: 5rem; /* 大号标题 */
+    font-weight: 700; /* 粗体 */
+    margin-bottom: 0.5rem;
+    /* 模拟深度和光线的文字阴影 */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ------------------------------------ */
+/* 4. CTA 按钮样式 (Call to Action) */
+/* ------------------------------------ */
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    
+    /* 苹果风格：白色、圆角、简洁 */
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 999px; /* 椭圆形或大圆角 */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600; /* 半粗体 */
+    
+    /* 轻微的阴影效果模拟苹果按钮的浮动感 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    
+    /* 动画过渡，使悬停效果更平滑 */
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.cta-button:hover {
+    /* 悬停时略微放大，模拟点击前的手感 */
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 媒体查询：适应移动设备 */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    .cta-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}
